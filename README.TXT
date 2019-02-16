@@ -79,8 +79,10 @@ NOW, maybe you're ready to start making changes.
 
 
 
-* Add more accounts to the default constructor of the Bank class.
+* //KB DONE// Add more accounts to the default constructor of the Bank class.
 * When you overdraft an account, print an alert message to the areaInfo object on the window.
+    // KB: need to override the accountData.toString() with a new string. not sure where or how to do this. see how it
+    //overrides for the account Id error in the CashMachine file.
 
 Additional things to add
 ------------------------
@@ -97,7 +99,7 @@ make sure the project runs. (Else the Board... well, disappointment lies that di
   * and then enable them. add another TextField for the amount entries. 
   * Make it different from the TextField where you set the account ID.
 
-* Enable the amount entries to be floating point numbers instead of 
+* //KB DONE// Enable the amount entries to be floating point numbers instead of
   just integers when doing deposits and withdrawals.
 
 * Add a menu with a list of accounts in it and the menu action switched 

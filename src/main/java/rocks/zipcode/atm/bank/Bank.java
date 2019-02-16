@@ -20,6 +20,18 @@ public class Bank {
         accounts.put(2000, new PremiumAccount(new AccountData(
                 2000, "Example 2", "example2@gmail.com", 200
         )));
+
+        accounts.put(1001, new BasicAccount(new AccountData(
+                1001, "Example 3", "example3@gmail.com", 350
+        )));
+
+        accounts.put(2001, new PremiumAccount(new AccountData(
+                2001, "Example 4", "example4@gmail.com", 800
+        )));
+
+        accounts.put(2002, new PremiumAccount(new AccountData(
+                2002, "Example 5", "example5@gmail.com", 1000
+        )));
     }
 
     public ActionResult<AccountData> getAccountById(int id) {
@@ -32,21 +44,23 @@ public class Bank {
         }
     }
 
-    public ActionResult<AccountData> deposit(AccountData accountData, int amount) {
+    public ActionResult<AccountData> deposit(AccountData accountData, Double amount) {
         Account account = accounts.get(accountData.getId());
         account.deposit(amount);
 
         return ActionResult.success(account.getAccountData());
     }
 
-    public ActionResult<AccountData> withdraw(AccountData accountData, int amount) {
+    public ActionResult<AccountData> withdraw(AccountData accountData, Double amount) {
         Account account = accounts.get(accountData.getId());
         boolean ok = account.withdraw(amount);
 
         if (ok) {
             return ActionResult.success(account.getAccountData());
         } else {
+
             return ActionResult.fail("Withdraw failed: " + amount + ". Account has: " + account.getBalance());
         }
     }
+
 }
